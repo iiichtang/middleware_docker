@@ -2,19 +2,16 @@ FROM centos
 
 MAINTAINER iiichtang
 
-RUN yum update -y
+RUN yum update -y && \
+    yum install -y java-1.8.0 \
+    wget \
+    unzip
 
-RUN yum install -y java-1.8.0 \
-wget \
-unzip
-
-RUN mkdir -p /middleware
-
-RUN (cd /middleware && wget https://s3-ap-northeast-1.amazonaws.com/itrimiddleware/middleware.zip)
-
-RUN (cd /middleware && unzip ./middleware.zip)
-
-RUN (cd /middleware && rm middleware.zip)
+RUN mkdir -p /middleware && \ 
+    cd /middleware && \
+    wget https://s3-ap-northeast-1.amazonaws.com/itrimiddleware/middleware.zip && \
+    unzip ./middleware.zip && \
+    rm middleware.zip
 
 EXPOSE 1099
 EXPOSE 8082
