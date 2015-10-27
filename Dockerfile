@@ -10,9 +10,9 @@ RUN yum update -y && \
 
 RUN mkdir -p /middleware && \
     cd /middleware && \
-    wget https://s3-ap-northeast-1.amazonaws.com/itrimiddleware/middleware_20151001.zip && \
-    unzip ./middleware_20151001.zip && \
-    rm middleware_20151001.zip
+    wget https://s3-ap-northeast-1.amazonaws.com/itrimiddleware/middleware_20151027.zip && \
+    unzip ./middleware_20151027.zip && \
+    rm middleware_20151027.zip
 
 EXPOSE 8511 8512 8513 8514 8515
 
